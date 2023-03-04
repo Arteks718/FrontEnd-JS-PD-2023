@@ -62,29 +62,52 @@
 
 // let r1 = new Rect(20,4)
 
-//Наследование
-class User{
-    #login;
-    #password;
-    constructor(login, password, fullname="anov"){
-        this.#login = login
-        this.#password = password;
+
+// class User{
+//     #login;
+//     #password;
+//     constructor(login, password, fullname="anov"){
+//         this.#login = login
+//         this.#password = password;
+//         this.fullname = fullname;
+//     }
+//     set login(value){
+//         this.login = value
+//     }
+//     set password(value){
+//         this.password = value
+//     }
+//     get login(){
+//         return this.login
+//     }
+//     get password(){
+//         return this.password
+//     }
+// }
+
+// let user1 = new User("Tom", "fghfhg")
+
+// console.log(user1);
+
+class Client{
+    constructor(fullname, phone){
         this.fullname = fullname;
+        this.phone = phone
     }
-    set login(value){
-        this.login = value
-    }
-    set password(value){
-        this.password = value
-    }
-    get login(){
-        return this.login
-    }
-    get password(){
-        return this.password
+    printPersonalInfo(){
+        console.log(this.fullname, this.phone);
     }
 }
 
-let user1 = new User("Tom", "fghfhg")
+class User extends Client{
+    constructor(login, password, fullname, phone){
+        super(fullname, phone); //вызов констуктора родителя
+        this.login = login;
+        this.password = password;
+    }
+}
+
+let user1 = new User('fgh', 'qwerty', "test test", '45245113')
 
 console.log(user1);
+user1.printPersonalInfo();
