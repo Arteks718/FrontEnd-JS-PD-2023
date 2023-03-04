@@ -170,4 +170,4 @@ let purchase = {
         },
 }
 
-console.log(purchase.purchasedPrice());
+// console.log(purchase.purchasedPrice());
