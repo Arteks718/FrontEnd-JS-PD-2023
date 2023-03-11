@@ -89,7 +89,7 @@
 
 // console.log(user1);
 
-class Client{
+/*class Client{
     constructor(fullname, phone){
         this.fullname = fullname;
         this.phone = phone
@@ -110,4 +110,86 @@ class User extends Client{
 let user1 = new User('fgh', 'qwerty', "test test", '45245113')
 
 console.log(user1);
-user1.printPersonalInfo();
+user1.printPersonalInfo(); */
+
+// class User{
+//     constructor(login, password){
+//         this._login = login;
+//         this._password = password;
+//     }
+//     updatePassword(newPass){
+//         this._password = newPass;
+//     }
+//     set login(value){
+//         this._login = value
+//     }
+//     set password(value){
+//         this._password = value
+//     }
+//     get login(){
+//         return this._login
+//     }
+//     get password(){
+//         return this._password
+//     }
+// }
+
+// class Worker extends User{
+//     constructor(salary, category, auth={login:'user', password: 'user'}){
+//         super(auth.login, auth.password);
+//         this.salary = salary;
+//         this.category = category;
+//     }  
+//     salaryPerYear(){
+//         return salary * 12
+//     }
+//     out(){
+//         console.log(this);
+//     }
+// }
+
+// let worker1 = new Worker(12000, "slave", "log", "pass");
+// worker1.out();
+
+class Author{
+    static countAuthors = 0;
+    constructor(name){
+        this.name = name;
+        Author.countAuthors++
+    }
+}
+
+let author1 = new Author("Test 1");
+let author2 = new Author("Test 2");
+let author3 = new Author("Test 3");
+
+console.log(`Total count: ${Author.countAuthors}`);
+
+class Worker{
+    static countWorkers = 0;
+
+    constructor(name, salary){
+        this.name = name;
+        this.salary = salary;
+        Worker.countWorkers++
+    }
+
+    static compareTwoSalary(w1, w2){
+        (w1.salary > w2.salary) ? console.log(`${w1.name} has the salary bigger than ${w2.name}`) : console.log(`${w2.name} has the salary bigger than ${w1.name}`)
+    }
+
+    static totalSumForMonth(){
+
+    }
+}
+
+let w1 = new Worker("Worker1", 5000);
+let w2 = new Worker("Worker2", 52000);
+let w3 = new Worker("Worker3", 50400);
+let w4 = new Worker("Worker4", 50050);
+let w5 = new Worker("Worker5", 50001);
+
+Worker.compareTwoSalary(w2,w3);
+console.log(Worker.countWorkers);
+
+console.log(Worker.totalSumForMonth());
