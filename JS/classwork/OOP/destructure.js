@@ -100,34 +100,3 @@ let stud = {
 
 stud.__proto__ = user;
 */
-
-const ROLE = {
-  ADMIN: "ADMIN",
-  MODERATOR: "MODERATOR",
-  USER: "USER"
-};
-
-const ACTION = {
-  CREATE: "CREATE",
-  READ: "READ",
-  UPDATE: "UPDATE",
-  DELETE: "DELETE",
-}
-
-let mapRights = new Map()
-
-mapRights.set(ROLE.USER, [ACTION.READ]);
-mapRights.set(ROLE.MODERATOR, [ACTION.CREATE, ACTION.READ, ACTION.UPDATE]);
-mapRights.set(ROLE.ADMIN, ...ACTION);
-
-function checkPermission(role, action){
-  if(mapRights.has(role)){
-    mapRights.get(role).includes(action);
-  }
-  return false;
-}
-
-class MapUsers{
-
-  
-}
