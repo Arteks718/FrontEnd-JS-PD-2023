@@ -1,0 +1,83 @@
+/* body{
+  background-color: aquamarine;
+}
+.userCardContainer {
+  width: 320px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userPhoto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1px solid black;
+} */
+
+
+:root{
+  --main-bg-img: url("https://kaboompics.com/cache/5/a/0/7/e/5a07eb015fa6f89b30028711cc0cb4584cd3b835.jpeg");
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: var(--main-bg-img);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.glass{
+  height: inherit;
+  width: inherit;
+  background-image: var(--main-bg-img);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(10px);
+  clip-path: inset(100px);
+}
+
+.shadow{
+  height: 100%;
+  width: 100%;
+  filter: drop-shadow(0px 10px 10px black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shadow span{
+  position: absolute;
+  z-index: 2;
+  color: white;
+  font-size: 50px;
+  letter-spacing: 3em;
+  text-transform: uppercase;
+}
