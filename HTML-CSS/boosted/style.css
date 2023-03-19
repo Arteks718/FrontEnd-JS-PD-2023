@@ -48,6 +48,11 @@ header > p {
   main
 **************************************/
 
+main{
+  display: grid;
+  grid-auto-flow: row;
+}
+
 .top-main{
   position: relative;
 
