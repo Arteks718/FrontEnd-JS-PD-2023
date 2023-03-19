@@ -1,21 +1,26 @@
-const counterValue = document.getElementById('counterValue')
-const incBtn = document.getElementById('inc')
-const decBtn = document.getElementById('dec')
-const updBtn = document.getElementById('udp')
+const boxes = document.querySelectorAll('.box');
+console.log(boxes);
 
-let count = counterValue.innerText = localStorage.getItem('counterValue');;
+boxes.forEach(b => {
+  b.addEventListener('click', makeColor1);
+  b.children[0].addEventListener('click', ()=>{
+    b.remove();
+  })
+})
 
-incBtn.addEventListener('click',()=>{
-  count++
-  counterValue.innerText = count;
-  localStorage.setItem('counterValue',count)
-})
-decBtn.addEventListener('click',()=>{
-  count--
-  counterValue.innerText = count;
-  localStorage.setItem('counterValue',count)
-})
-updBtn.addEventListener('click',()=>{
-  count = counterValue.innerText = 0;
-  localStorage.setItem('counterValue',count)
-})
+function makeColor1(event){
+  // console.log(event);
+  // console.log(event.target);
+
+  this.classList.add('greenyellow');
+  this.removeEventListener('click', makeColor1);
+  this.classList.remove('white');
+  this.addEventListener('click', makeColor2);
+}
+
+function makeColor2(event){
+  this.classList.add('white');
+  this.removeEventListener('click', makeColor2);
+  this.classList.remove('greenyellow');
+  this.addEventListener('click', makeColor1);
+}
