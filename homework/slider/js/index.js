@@ -38,9 +38,8 @@ let slide = [
 ];
 
 function createSlide(slide) {
-  //parent elem
-  const slideItem = document.createElement("div");
-  slideItem.classList.add("item");
+  const sideBar = document.getElementById('side-bar')
+  const mainBar = document.getElementById('main-bar')
 
   //box
   const boxItem = document.createElement("div");
@@ -66,27 +65,15 @@ function createSlide(slide) {
   image.setAttribute("src", slide.image);
   image.setAttribute("alt", "slide photo");
 
-  slideItem.append(boxItem, image);
-  return slideItem;
+  sideBar.append(boxItem);
+  mainBar.append(image);
 }
 
-const buttons = document.getElementById("buttons");
-
-const upButton = document.createElement("button");
-upButton.classList.add("up-button");
-const angleUp = document.createElement("i");
-angleUp.classList.add("fas", "fa-angle-up");
-upButton.append(angleUp);
-
-const downButton = document.createElement("button");
-downButton.classList.add("down-button");
-const angleDown = document.createElement("i");
-angleDown.classList.add("fas", "fa-angle-down");
-downButton.append(angleDown);
-
-buttons.append(upButton, downButton);
-
 const container = document.getElementById("container");
+const buttons = document.getElementById("buttons");
+const upButton = document.getElementById("up-button");
+const downButton = document.getElementById("down-button");
+
 
 slide.forEach((s, index) => {
   container.append(createSlide(s));
@@ -96,26 +83,46 @@ let countSlides = container.childElementCount;
 let slideActiveIndex = 0;
 let activeEl = container.children[slideActiveIndex];
 
-activeEl.classList.add("active");
+// activeEl.classList.add("active");
 
 // console.log(activeEl);
 
-upButton.addEventListener("click", upChangeSlide);
-downButton.addEventListener("click", downChangeSlide);
+upButton.addEventListener("click", changeSlide('up'));
+downButton.addEventListener("click", changeSlide('down'));
 
-function upChangeSlide() {
-  container.children[slideActiveIndex].classList.remove("active");
-  slideActiveIndex++;
-  if (slideActiveIndex >= countSlides) slideActiveIndex = 0;
-  container.children[slideActiveIndex].classList.add("active");
+function changeSlide (direction) {
+  if (direction === 'up') {
+      activeSlideIndex++;
+      if (activeSlideIndex === slidesCount) {
+          activeSlideIndex = 0;
+      }
+  } else if (direction === 'down') {
+      activeSlideIndex--;
+      if (activeSlideIndex < 0) {
+          activeSlideIndex = slidesCount - 1;
+      }
+  }
+  const heigth = container.clientHeight;
+
+  mainbar.style.transform = `translateY(-${activeSlideIndex * heigth}px)`;
+
+  sidebar.style.transform = `translateY(${activeSlideIndex * heigth}px)`;
+
 }
 
-function downChangeSlide() {
-  container.children[slideActiveIndex].classList.remove("active");
-  slideActiveIndex--;
-  if (slideActiveIndex < 0) slideActiveIndex = countSlides - 1;
-  container.children[slideActiveIndex].classList.add("active");
-}
+// function upChangeSlide() {
+//   container.children[slideActiveIndex].classList.remove("active");
+//   slideActiveIndex++;
+//   if (slideActiveIndex >= countSlides) slideActiveIndex = 0;
+//   container.children[slideActiveIndex].classList.add("active");
+// }
+
+// function downChangeSlide() {
+//   container.children[slideActiveIndex].classList.remove("active");
+//   slideActiveIndex--;
+//   if (slideActiveIndex < 0) slideActiveIndex = countSlides - 1;
+//   container.children[slideActiveIndex].classList.add("active");
+// }
 
 // let box = item.childNodes[0];
 // let img = item.childNodes[1];

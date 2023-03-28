@@ -1,0 +1,120 @@
+@import url(./reset.css);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 99, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 99, 255, 1) 0%,
+    rgba(0, 255, 244, 1) 100%
+  );
+}
+
+button{
+  background-color: #c19ef1;
+  color:white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color .5s;
+}
+
+button:hover{ 
+  transition: background-color .5s;
+  background-color: #c19ef1ab;
+}
+
+
+.mainForm{
+  background-color: white;
+  padding: 25px;
+  width: 350px;
+  border-radius: 10px;
+}
+
+.mainForm > button{
+  padding: 10px;
+}
+
+.new-task{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  margin: 10px 0;
+}
+
+.new-task button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+  margin-left: 10px;
+}
+
+.new-task > *{
+  height: inherit;
+}
+
+.new-task > input{
+  width: 100%;
+  border-radius: 5px;
+  padding: 15px;
+  border: 1px solid rgba(128, 128, 128, 0.37);
+}
+
+.count-and-clear{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.count-and-clear button{
+  padding: 4px;
+}
+
+#tasks > div{
+  display: flex;
+  justify-content: space-between;
+  width: inherit;
+  background-color: #f3f2f3;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+#tasks > div > p{
+  padding: 7px;
+}
+
+.delete{
+  display: block;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  background-color: red;
+  border-radius: 0;
+  transform: translateX(40px);
+  transition: transform .3s;
+}
+
+.delete:hover{
+  background-color: rgba(255, 0, 0, 0.39);
+}
+
+#tasks > div:hover .delete{
+  transition: transform .3s;
+  transform: translateX(0px);
+}
