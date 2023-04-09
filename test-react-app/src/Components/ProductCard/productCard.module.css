@@ -1,0 +1,28 @@
+.selectedCard{
+    border: 5px solid yellowgreen;
+}
+
+.card{
+    width: 500px;
+    height: 150px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    background-color: lightcyan;
+}
+
+.imgContainer{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.imgContainer > img{
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+}
