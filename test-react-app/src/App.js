@@ -4,8 +4,12 @@ import React, { Component } from "react";
 // import StopWatch from './Components/StopWatch';
 // import ProductCard from "./Components/ProductCard";
 // import SignIn from "./Pages/SignIn";
-import Counter from "./Components/Counter"
-import Hello from "./Components/FunctionsComponents/Hello"
+import ViewPortParamsHooks from "./Components/ViewPortParamsHooks"
+import TimerFunctions from "./Components/TimerFunctions";
+import Counter from "./Components/Counter";
+import Hello from "./Components/FunctionsComponents/Hello";
+import WaterHooks from "./Components/WaterHooks"
+import Restaraunt from "./Pages/Restaraunt";
 
 const db = [
   {
@@ -30,20 +34,22 @@ const db = [
   {},
 ];
 
-const currentUser = {
-  firstName: 'Genry',
-  lastName: 'Watson',
-}
+const currentUser = [
+  {
+    firstName: "Genry",
+    lastName: "Watson",
+  },
+  {
+    firstName: 'John',
+    lastName: 'Adson'
+  }
+];
 
 export default class App extends Component {
   render() {
     return (
       <>
-        {/* {db.map((c, i) => (
-          <ProductCard key={i} product={c} />
-        ))} */}
-        {/* <Hello user={currentUser} isHello={true} /> */}
-        <Counter step={10}></Counter>
+
       </>
     );
   }

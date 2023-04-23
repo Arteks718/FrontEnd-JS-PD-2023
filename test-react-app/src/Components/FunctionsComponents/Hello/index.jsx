@@ -8,29 +8,32 @@
 //   )
 // }
 
-import React, { useState } from 'react';
-import styles from './Hello.module.css';
+import React, { useState, useEffect } from "react";
+import styles from "./Hello.module.css";
 
 export default function Hello(props) {
-
-  const {firstName, lastName} = props.user;
+  const {
+    isHello,
+    user: { firstName, lastName },
+  } = props;
   const [msg, setMsg] = useState("");
   const [theme, setTheme] = useState("");
 
-  const changeMode = () => {
-    if(props.isHello){
-        setMsg("Hello");
-        setTheme('dayTheme');
-    } else{
-        setMsg("Bye");
-        setTheme('nightTheme');
+  useEffect(() => {
+    if (props.isHello) {
+      setMsg("Hello");
+      setTheme("dayTheme");
+    } else {
+      setMsg("Bye");
+      setTheme("nightTheme");
     }
-  };
+  }, [isHello]);
 
   return (
     <div className={styles[theme]}>
-            <button onClick={changeMode}>mode</button>
-            <h1>{msg}, {firstName} {lastName} !!!</h1>
+      <h1>
+        {msg}, {firstName} {lastName} !!!
+      </h1>
     </div>
-  )
+  );
 }
