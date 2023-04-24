@@ -4,12 +4,16 @@ import React, { Component } from "react";
 // import StopWatch from './Components/StopWatch';
 // import ProductCard from "./Components/ProductCard";
 // import SignIn from "./Pages/SignIn";
-import ViewPortParamsHooks from "./Components/ViewPortParamsHooks"
+import ViewPortParamsHooks from "./Components/ViewPortParamsHooks";
 import TimerFunctions from "./Components/TimerFunctions";
 import Counter from "./Components/Counter";
 import Hello from "./Components/FunctionsComponents/Hello";
-import WaterHooks from "./Components/WaterHooks"
+import WaterHooks from "./Components/WaterHooks";
 import Restaraunt from "./Pages/Restaraunt";
+import ClickComponent from "./Components/FunctionsComponents/ClickComponent";
+import Calc from "./Components/FunctionsComponents/Calc";
+import CardList from "./Components/FunctionsComponents/CardList";
+import Slider from "./Components/Slider";
 
 const db = [
   {
@@ -40,16 +44,26 @@ const currentUser = [
     lastName: "Watson",
   },
   {
-    firstName: 'John',
-    lastName: 'Adson'
-  }
+    firstName: "John",
+    lastName: "Adson",
+  },
+];
+
+const images = [
+  "https://img3.akspic.ru/previews/5/5/4/1/7/171455/171455-zhivopis-illustracia-art-voda-oblako-500x.jpg",
+  "",
+  "",
 ];
 
 export default class App extends Component {
   render() {
     return (
       <>
-
+        <Slider images={images}></Slider>
+        {/* <CardList></CardList> */}
+        {/* <ClickComponent/> */}
+        {/* <Calc></Calc> */}
+        {/* <Restaraunt></Restaraunt> */}
       </>
     );
   }
