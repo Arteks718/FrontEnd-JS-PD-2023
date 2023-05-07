@@ -14,6 +14,7 @@ import ClickComponent from "./Components/FunctionsComponents/ClickComponent";
 import Calc from "./Components/FunctionsComponents/Calc";
 import CardList from "./Components/FunctionsComponents/CardList";
 import Slider from "./Components/Slider";
+import Changer from "./Components/FunctionsComponents/Changer";
 
 const db = [
   {
@@ -59,7 +60,9 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Slider images={images}></Slider>
+        <Counter step={5}></Counter>
+        {/* <Slider images={images}></Slider>
+        <Changer color1="red" color2="green" time={2000}></Changer> */}
         {/* <CardList></CardList> */}
         {/* <ClickComponent/> */}
         {/* <Calc></Calc> */}
