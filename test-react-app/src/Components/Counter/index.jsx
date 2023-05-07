@@ -1,4 +1,5 @@
 import React, { useState, Component, useReducer } from "react";
+import { ThemeContext } from "../../contexts";
 import PropTypes from "prop-types";
 import DisplayValue from "./DisplayValue";
 
@@ -59,13 +60,19 @@ export default function Counter(props) {
 
 
   return (
-    <>
-      <h1>Counter: {state.value}</h1>
-      <h2>step: {step}</h2>
-      <button onClick={()=>{dispatch({type: 'INC'})}}>+</button>
-      <button onClick={()=>{dispatch({type: 'DEC'})}}>-</button>
+    <ThemeContext.Consumer>
+      {theme=> {
+        return (
+          <div>
+            <h1>Counter: {state.value}</h1>
+            <h2>step: {step}</h2>
+            <button onClick={()=>{dispatch({type: 'INC'})}}>+</button>
+            <button onClick={()=>{dispatch({type: 'DEC'})}}>-</button>
+          </div>)
+      }}
+
       {/* <DisplayValue value={state.value}></DisplayValue> */}
-    </>
+    </ThemeContext.Consumer>
   );
 }
 
